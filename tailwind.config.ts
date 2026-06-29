@@ -12,7 +12,6 @@ const config: Config = {
           DEFAULT: "#C8A96E",
           light: "rgba(200,169,110,0.15)",
           subtle: "rgba(200,169,110,0.1)",
-          muted: "rgba(200,169,110,0.05)",
         },
         surface: {
           DEFAULT: "#0A0A0A",
@@ -25,18 +24,6 @@ const config: Config = {
       borderRadius: {
         card: "20px",
         btn: "16px",
-      },
-      fontFamily: {
-        sans: [
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
       },
     },
   },

@@ -5,7 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 
 create table quiz_leads (
   id uuid primary key default gen_random_uuid(),
-  email text,
+  email text unique,
   archetype_id text not null,
   answers jsonb,
   created_at timestamptz default now()

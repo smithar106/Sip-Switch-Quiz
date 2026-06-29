@@ -25,10 +25,12 @@ export default function QuizClient({ appStoreUrl }: QuizClientProps) {
   const [submitting, setSubmitting] = useState(false);
   const [animKey, setAnimKey] = useState(0);
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const calculatingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     return () => {
       if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
+      if (calculatingTimer.current) clearTimeout(calculatingTimer.current);
     };
   }, []);
 
@@ -57,7 +59,7 @@ export default function QuizClient({ appStoreUrl }: QuizClientProps) {
           setAnimKey((k) => k + 1);
         } else {
           setPhase("calculating");
-          setTimeout(() => {
+          calculatingTimer.current = setTimeout(() => {
             const result = calculateArchetype(newAnswers);
             setArchetype(result);
             trackQuizComplete(result.id);
